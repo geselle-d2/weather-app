@@ -3,7 +3,7 @@ import Database from "better-sqlite3";
 
 const app = express();
 const dbOptions = {};
-const db = new Database("c:/Users/schlachtergeselle/react/project/foobar.db", dbOptions); /* RELATIVE PATH MAY BREAK */
+const db = new Database("foobar.db", dbOptions);
 const PORT = 3100
 db.pragma("journal_mode = WAL");
 
@@ -14,7 +14,7 @@ app.get("/", function (req, res) {
 		res.send("Up and running")
 	}
 
-	/*can be implemented and individualized for each different request */
+	/*try/error-catch can be implemented and individualized for each different request */
 	catch{
 		console.error("something happened")
 	}
