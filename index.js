@@ -33,6 +33,7 @@ app.get("/dbinfo/year", (req,res) => {
 	res.json(row)
 })
 /*----------------------------------------------------------------------------------------------- */
+/*sql-injection possible?!*/
 /*responds with region specific cities and their respective average temperature, grouped and ordered */
 /*responds to  getABSortedCities and getTempSortedCities */
 app.get("/dbinfo/region", (req,res)=>{
