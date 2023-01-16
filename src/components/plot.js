@@ -3,10 +3,11 @@ import React from "react";
 import Plot from "react-plotly.js"
 
 export default function(props){
+    
     /*map plot data from object-list to list */
-    const xData = props.data? props.data.map(x =>x.Month): [] 
+    const xData = props.data? props.data.map(x => props.mode==="monthly"? x.Month: x.Day): [] 
     /*convert y-values from fahrenheit to celsius */
-    const yData = props.data? props.data.map(y =>Math.floor((y.AvgTemperature-32)/1.8)):[]
+    const yData = props.data? props.data.map(y =>(y.AvgTemperature-32)/1.8):[]
 
     return (
         <Plot
@@ -21,7 +22,7 @@ export default function(props){
         ]}
         layout={ {width: 640, height: 480, title: props.title,
             xaxis:{
-                title: "Month"
+                title: props.mode === "daily"? "Day": "Month"
             },
             yaxis:{
                 title: "Temperature in °C"
